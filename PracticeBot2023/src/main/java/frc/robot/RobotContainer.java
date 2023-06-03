@@ -24,6 +24,7 @@ import frc.robot.commands.roboAutos.onePlusPickUp.CubeHighPickUp;
 import frc.robot.commands.roboAutos.two.ScoreHighTwice;
 import frc.robot.commands.roboAutos.two.ScoreHybridTwice;
 import frc.robot.subsystems.Chassis;
+import frc.robot.subsystems.ColorSensor;
 //import frc.robot.subsystems.ColorSensor;
 import frc.robot.subsystems.Elevator;
 import frc.robot.subsystems.Gyro;
@@ -48,13 +49,13 @@ public class RobotContainer {
   public static final boolean TWO_DRIVER_MODE = true;
 
   PneumaticHub m_hub;
-  //ColorSensor m_colorSensor;
+  ColorSensor m_colorSensor;
   Chassis m_chassis;
   //Intake m_intake;
   IntakeAlternate intake;
   Elevator m_elevator;
   Gyro m_gyro;
-  //LimeLight m_lLight;
+  //sLimeLight m_lLight;
   // Replace with CommandPS4Controller or CommandJoystick if needed
 
   /**
@@ -62,7 +63,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     m_hub = new PneumaticHub(Constants.RobotMap.PCM_ID);
-    //m_colorSensor = new ColorSensor();
+    m_colorSensor = new ColorSensor();
     //m_intake = new Intake(m_hub, null);
     intake = new IntakeAlternate();
     m_elevator = new Elevator(intake);
@@ -155,7 +156,7 @@ public class RobotContainer {
       m_gyro.periodic();
     } catch (Exception e) { /* Don't die if the gyro dies */}
     try {
-      //m_colorSensor.periodic();
+      m_colorSensor.periodic();
     } catch (Exception e) { /* Don't die if the colorsensor dies. */ }
     try {
       //m_lLight.periodic();
@@ -209,6 +210,6 @@ public class RobotContainer {
   }
 
   public void setLEDMode(boolean teleop){
-    //m_colorSensor.setTeleop(teleop);
+    m_colorSensor.setTeleop(teleop);
   }
 }
