@@ -10,7 +10,7 @@ public class ColorSensor {
   Joystick joy;
   LEDStrip strip;
 
-  final int NUMBER_OF_LEDS = 500;
+  final int NUMBER_OF_LEDS = 103;
 
   public ColorSensor(){
     strip = new LEDStrip(1, NUMBER_OF_LEDS);
@@ -19,6 +19,7 @@ public class ColorSensor {
 
   boolean cone = true;
   boolean teleop = false;
+  boolean off = false;
 
   public void setTeleop(boolean teleop){
     this.teleop = teleop;
@@ -26,19 +27,28 @@ public class ColorSensor {
   
   public void periodic(){
     if(teleop){
-      if(joy.getRawButton(3)){
+      if(joy.getRawButton(5)){
         cone = true;
-      }else if(joy.getRawButton(4)){
+        off = false;
+      }else if(joy.getRawButton(3)){
         cone = false;
+        off = false;
+      }else if (joy.getRawButton(4)){
+        strip.set(0,0,0);
+        off = true;
       }
-  
-      if(!cone){
-        strip.set(106, 13,173);//cube
-      }else{
-        strip.set(40, 20, 0);//cone
+      if (off){
+        strip.set(0,0,0);
+      } else{
+        if(!cone){
+          strip.set(106, 13,173);//cube
+        }else{
+          strip.set(40, 20, 0);//cone
+        }
       }
     }else{
-      strip.setFancyDualLayer(FancyLED.PULSE, 0,0,100,150,20,1);
+      //strip.setFancyDualLayer(FancyLED.PULSE, 0,0,100,150,20,1);
+      strip.setFancyDualLayer(FancyLED.PULSE, 0,0,0,0,0,0);
     }
   }
 }

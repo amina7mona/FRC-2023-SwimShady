@@ -5,6 +5,7 @@
 package frc.robot.commands.roboAutos.oneOnly;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.commands.roboActions.Combo.GoHome;
 import frc.robot.commands.roboActions.Combo.GoMidSmooth;
@@ -28,6 +29,7 @@ public class ScoreMidCube extends SequentialCommandGroup {
     straightHeadingController = new PIDController(.05, .007, 0, .15, .2, .2, 0);
     addCommands(
       new GoMidSmooth(intake, elevator)
+      ,new WaitCommand(0.25)
       ,new IntakeIn(intake,true)//actually eject for cube
       ,new GoHome(intake, elevator)
     );

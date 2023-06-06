@@ -49,7 +49,7 @@ public class RobotContainer {
   public static final boolean TWO_DRIVER_MODE = true;
 
   PneumaticHub m_hub;
-  ColorSensor m_colorSensor;
+  //ColorSensor m_colorSensor;
   Chassis m_chassis;
   //Intake m_intake;
   IntakeAlternate intake;
@@ -63,7 +63,7 @@ public class RobotContainer {
    */
   public RobotContainer() {
     m_hub = new PneumaticHub(Constants.RobotMap.PCM_ID);
-    m_colorSensor = new ColorSensor();
+  //  m_colorSensor = new ColorSensor();
     //m_intake = new Intake(m_hub, null);
     intake = new IntakeAlternate();
     m_elevator = new Elevator(intake);
@@ -156,7 +156,7 @@ public class RobotContainer {
       m_gyro.periodic();
     } catch (Exception e) { /* Don't die if the gyro dies */}
     try {
-      m_colorSensor.periodic();
+    //  m_colorSensor.periodic();
     } catch (Exception e) { /* Don't die if the colorsensor dies. */ }
     try {
       //m_lLight.periodic();
@@ -209,7 +209,7 @@ public class RobotContainer {
     m_chassis.setBrake();
   }
 
-  public void setLEDMode(boolean teleop){
-    m_colorSensor.setTeleop(teleop);
+   public void setLEDMode(boolean teleop){
+  //  m_colorSensor.setTeleop(teleop);
   }
 }

@@ -5,6 +5,7 @@
 package frc.robot.commands.roboAutos.oneOnly;
 
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
+import edu.wpi.first.wpilibj2.command.WaitCommand;
 import frc.robot.Constants;
 import frc.robot.commands.roboActions.Combo.GoHighSmooth;
 import frc.robot.commands.roboActions.Combo.GoHome;
@@ -27,6 +28,7 @@ public class ScoreHighCube extends SequentialCommandGroup {
     straightHeadingController = new PIDController(.05, .007, 0, .15, .2, .2, 0);
     addCommands(
       new GoHighSmooth(intake, elevator)
+      ,new WaitCommand(0.25)
       ,new IntakeIn(intake,true)
       ,new GoHome(intake, elevator)
     );

@@ -20,7 +20,7 @@ public class ScoreHighCubePlusEngage extends SequentialCommandGroup {
     // Add your commands in the addCommands() call, e.g.
     // addCommands(new FooCommand(), new BarCommand());
     addCommands(
-      new ScoreHighCube(elevator, intake,chassis,gyro)
+     new ScoreHighCube(elevator, intake,chassis,gyro)
       ,new GoHome(intake, elevator)
       ,new DockAndEngage(chassis, gyro)
     );

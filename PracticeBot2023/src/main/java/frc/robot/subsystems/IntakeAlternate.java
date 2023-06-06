@@ -45,6 +45,7 @@ public class IntakeAlternate extends SubsystemBase {
     intakeMotor = new CANSparkMax(Constants.RobotMap.PORT_INTAKE2, MotorType.kBrushless);
     intakeMotor.setIdleMode(IdleMode.kBrake);
     intakeMotor.setInverted(true);
+    //intakeMotor.setSmartCurrentLimit(35); do not mess with this until we know what to do!!!!!
 
     wristMotor = new CANSparkMax(Constants.RobotMap.PORT_WRIST2, MotorType.kBrushless);
     wristMotor.setIdleMode(IdleMode.kBrake);
@@ -60,7 +61,7 @@ public class IntakeAlternate extends SubsystemBase {
     scoringController = new frc.robot.utils.PIDController(7.5, 6, 0, .8, 0.01,0.01,Constants.Wrist.WRIST_POS_TO_SCORE);
     substationController = new frc.robot.utils.PIDController(7.5, 6, 0, .8, 0.01,0,Constants.Wrist.WRIST_POS_TO_SUBSTATION);
     midController = new PIDController(7.5, 6, 0, .8, 0.01,0,Constants.Wrist.WRIST_POS_TO_MID);
-    autoController = new PIDController(7.5, 6, 0, .8, 0.01,0,Constants.Wrist.WRIST_POS_TO_SCORE_AUTO);
+    autoController = new PIDController(7.5, 6, 0, .8, 0.02,0.01,Constants.Wrist.WRIST_POS_TO_SCORE_AUTO);
     singleSubPidController = new PIDController(7.5, 6, 0, .8, 0.01,0,Constants.Wrist.WRIST_POS_TO_SCORE_AUTO);
   }
 
