@@ -1,4 +1,11 @@
 # SwimShady 2023
+
+![image](https://github.com/FRC-Team-333-The-Megalodons/FRC-2023-SwimShady/assets/114757533/1959ae97-5e69-4a38-b408-f4b81c783f5c)
+https://youtu.be/BGOSmeWJSxY?si=3y7tOQrhGS-w-YVx
+
+
+
+
  2023 Robot
  Logitech controller and Joystick 
 
